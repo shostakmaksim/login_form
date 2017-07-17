@@ -1,7 +1,7 @@
 <?php
 
 // DB connection
-$dbLink = require 'db/connect.php';
+require 'db/connect.php';
 
 // why use this trick?
 define('DEFAULT_ROUTE', 'login');

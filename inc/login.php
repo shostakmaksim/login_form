@@ -5,7 +5,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = (string) isset($_POST['password']) ? trim($_POST['password']) : '';
     
     /* создаем подготавливаемый запрос */
-    if ($stmt = mysqli_prepare($dbLink, "SELECT * FROM sb_users WHERE email= ?")) {
+    $link = DBConnect::getInstance();
+    
+    if ($stmt = mysqli_prepare($link->getLink(), "SELECT * FROM sb_users WHERE email= ?")) {
 
         /* связываем параметры с метками */
         mysqli_stmt_bind_param($stmt, "s", $email);
